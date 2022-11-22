@@ -13,6 +13,8 @@ public class GsonDeveloperRepositoryImpl implements DeveloperRepository{
 
     private DeveloperRepository developerRepo;
 
+    public GsonDeveloperRepositoryImpl() {
+    }
     public GsonDeveloperRepositoryImpl(DeveloperRepository developerRepo) {
         this.developerRepo = developerRepo;
     }
@@ -91,6 +93,16 @@ public class GsonDeveloperRepositoryImpl implements DeveloperRepository{
 
     @Override
     public void update(Long id, String firstName, String lastName, Set<Long> skillsId, Long specialtyId, Status status) throws Exception {
+
+    }
+
+    @Override
+    public void create(Long id, String firstName, String lastName) {
+
+    }
+
+    @Override
+    public void update(Long id, String firstName, String lastName) {
 
     }
 }

@@ -3,6 +3,7 @@ package com.rahatbek.repository;
 import java.util.List;
 
 public interface GenericRepository<T, ID> {
+//    T create(T item);
 
     T getById(ID id) throws Exception;
 

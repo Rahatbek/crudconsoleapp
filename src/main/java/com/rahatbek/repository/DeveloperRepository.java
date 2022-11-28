@@ -1,16 +1,18 @@
 package com.rahatbek.repository;
 
 import com.rahatbek.model.Developer;
-import com.rahatbek.model.Status;
-
-import java.util.Set;
+import com.rahatbek.model.Skill;
+import com.rahatbek.model.Specialty;
 
 public interface DeveloperRepository extends GenericRepository<Developer, Long> {
 
-    void create(String firstName, String lastName, Set<Long> skillsId, Long specialtyId, Status status) throws Exception;
-    void create(Long id, String firstName, String lastName);
+    boolean isContainSkill(Skill skill) throws Exception;
 
-    void update(Long id, String firstName, String lastName, Set<Long> skillsId, Long specialtyId, Status status) throws Exception;
-    void update(Long id, String firstName, String lastName);
+    boolean isContainSpecialty(Specialty specialty) throws Exception;
 
+    void checkEdit(Long id) throws Exception;
+
+    void checkSkill(Long id) throws Exception;
+
+    void checkSpecialty(Long id) throws Exception;
 }

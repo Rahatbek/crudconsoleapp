@@ -9,7 +9,10 @@ public enum Message {
     ERROR_OPERATION("Ошибка!"),
     NAME("Введите имя:"),
     ID("Введите ID:"),
-    NOT_FIND_ID("Нет ID = ");
+    NOT_FIND_ID("Нет ID = "),
+
+    LAST_NAME("Введите фамилие:"),
+    STATUS("Введите статус");
 
     private final String message;
 

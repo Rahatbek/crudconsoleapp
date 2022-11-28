@@ -1,7 +1,10 @@
 package com.rahatbek;
 
+import com.rahatbek.view.RunConsole;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        RunConsole runConsole = new RunConsole();
+        runConsole.run();
     }
 }

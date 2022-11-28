@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Util {
 
-    private final static String pathToFile = "./src/java/com/rahatbek/files";
+    private final static String pathToFile = "/src/main/java/com/rahatbek/view/files/";
 
     public static List<String> read(String fileName) {
 

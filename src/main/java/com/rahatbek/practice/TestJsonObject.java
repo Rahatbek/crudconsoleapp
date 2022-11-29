@@ -1,4 +1,4 @@
-package com.rahatbek;
+package com.rahatbek.practice;
 
 import com.google.gson.JsonObject;
 

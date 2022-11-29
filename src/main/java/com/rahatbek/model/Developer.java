@@ -71,4 +71,17 @@ public class Developer extends BaseEntity{
     public void setSkills(Set<Skill> skills) {
         this.skills = skills;
     }
+
+    @Override
+    public String toString() {
+        return "Developer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", specialtyId=" + specialtyId +
+                ", skillsId=" + skillsId +
+                ", specialty=" + specialty +
+                ", skills=" + skills +
+                ", status=" + status +
+                '}';
+    }
 }

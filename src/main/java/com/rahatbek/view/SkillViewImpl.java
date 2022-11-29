@@ -18,7 +18,7 @@ public class SkillViewImpl extends BaseView {
             " 1. Создать\n" +
             " 2. Редактировать\n" +
             " 3. Удалить\n" +
-            " 4. Вывести список категорий\n" +
+            " 4. Вывести список навыков\n" +
             " 5. Выход";
 
     private final String printSkill = "Список навыков:\n" +

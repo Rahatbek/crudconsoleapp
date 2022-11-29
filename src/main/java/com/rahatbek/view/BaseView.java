@@ -20,7 +20,7 @@ public abstract class BaseView {
         boolean isExit = false;
         while (true) {
             print();
-            System.out.println(Message.LINE);
+            System.out.println(Message.LINE.getMessage());
             System.out.println(msg);
             System.out.println(Message.LINE.getMessage());
             String response = sc.next();

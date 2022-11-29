@@ -24,4 +24,12 @@ public class Skill extends BaseEntity{
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "name='" + name + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

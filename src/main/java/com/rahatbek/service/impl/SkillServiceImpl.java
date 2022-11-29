@@ -32,7 +32,7 @@ public class SkillServiceImpl implements SkillService {
 
     @Override
     public List<Skill> getAll() throws Exception {
-        return null;
+        return skillRepo.getAll();
     }
 
     @Override

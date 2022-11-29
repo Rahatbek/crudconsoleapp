@@ -23,4 +23,12 @@ public class Specialty extends BaseEntity {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Specialty{" +
+                "name='" + name + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

@@ -1,8 +1,6 @@
 package com.rahatbek.model;
 
 public class Skill extends BaseEntity{
-
-
     private String name;
     private Status status;
 

@@ -1,14 +1,10 @@
 package com.rahatbek.model;
 
-import java.util.List;
 import java.util.Set;
 
-public class Developer extends BaseEntity{
+public class Developer extends BaseEntity {
     private String firstName;
     private String lastName;
-    private Long specialtyId;
-    private Set<Long> skillsId;
-
     private Specialty specialty;
     private Set<Skill> skills;
     private Status status;
@@ -30,22 +26,6 @@ public class Developer extends BaseEntity{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Set<Long> getSkillsId() {
-        return skillsId;
-    }
-
-    public void setSkillsId(Set<Long> skillsId) {
-        this.skillsId = skillsId;
-    }
-
-    public Long getSpecialtyId() {
-        return specialtyId;
-    }
-
-    public void setSpecialtyId(Long specialtyId) {
-        this.specialtyId = specialtyId;
     }
 
     public Status getStatus() {

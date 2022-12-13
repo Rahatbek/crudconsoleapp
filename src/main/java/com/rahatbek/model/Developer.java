@@ -1,5 +1,6 @@
 package com.rahatbek.model;
 
+import java.util.List;
 import java.util.Set;
 
 public class Developer {
@@ -7,7 +8,7 @@ public class Developer {
     private String firstName;
     private String lastName;
     private Specialty specialty;
-    private Set<Skill> skills;
+    private List<Skill> skills;
     private Status status;
 
     public Developer() {
@@ -45,11 +46,11 @@ public class Developer {
         this.specialty = specialty;
     }
 
-    public Set<Skill> getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(Set<Skill> skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 

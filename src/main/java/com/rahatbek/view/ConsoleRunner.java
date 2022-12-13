@@ -1,16 +1,19 @@
 package com.rahatbek.view;
 
 import com.rahatbek.controller.SkillController;
+import com.rahatbek.controller.SpecialtyController;
 import com.rahatbek.model.Message;
-import com.rahatbek.repository.GenericRepository;
 import com.rahatbek.repository.SkillRepository;
+import com.rahatbek.repository.SpecialtyRepository;
 import com.rahatbek.repository.gson.GsonSkillRepositoryImpl;
+import com.rahatbek.repository.gson.GsonSpecialtyRepositoryImpl;
 
 import java.util.Scanner;
 
 public class ConsoleRunner {
 
-    BaseView skillView;;
+    BaseView skillView;
+    BaseView specialtyView;
 
     private final String damagedDataMessage = "Данные повреждены!";
 
@@ -25,10 +28,13 @@ public class ConsoleRunner {
     public ConsoleRunner() {
 
         SkillRepository skillRepository = new GsonSkillRepositoryImpl();
+        SpecialtyRepository specialtyRepository = new GsonSpecialtyRepositoryImpl();
 
         SkillController skillController = new SkillController(skillRepository);
+        SpecialtyController specialtyController = new SpecialtyController(specialtyRepository);
 
         skillView = new SkillView(skillController, sc);
+        specialtyView = new SpecialtyView(specialtyController, sc);
     }
 
     public void run() {
@@ -45,6 +51,7 @@ public class ConsoleRunner {
                     skillView.show();
                     break;
                 case "2":
+                    specialtyView.show();
                     break;
                 case "3":
                     break;

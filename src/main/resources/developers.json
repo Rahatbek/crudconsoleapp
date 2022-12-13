@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "firstName": "Rahat",
+    "lastName": "Kojantaev",
+    "specialty": {
+      "id": 1,
+      "name": "A",
+      "status": "ACTIVE"
+    },
+    "skills": [
+      {
+        "id": 1,
+        "name": "A",
+        "status": "ACTIVE"
+      },
+      {
+        "id": 2,
+        "name": "B",
+        "status": "ACTIVE"
+      }
+    ],
+    "status": "ACTIVE"
+  }
+]

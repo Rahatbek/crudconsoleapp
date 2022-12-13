@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.rahatbek.model.Skill;
 import com.rahatbek.model.Status;
-import com.rahatbek.repository.GenericRepository;
 import com.rahatbek.repository.SkillRepository;
 
 import java.io.FileReader;
@@ -15,14 +14,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class GsonSkillRepositoryImpl implements GenericRepository<Skill, Long>, SkillRepository {
+public class GsonSkillRepositoryImpl implements SkillRepository {
 
     private final String SKILL_FILE_PATH = "./src/main/resources/skills.json";
     private final Gson GSON = new Gson();
 
 
     private List<Skill> getAllSkillsFromFile() {
-        String skillsJsonString = "";
+//        String skillsJsonString = "";
         //TODO: convert string to List<Skill>
         List<Skill> skills = new ArrayList<>();
         try (Reader reader = new FileReader(SKILL_FILE_PATH)) {
@@ -54,13 +53,10 @@ public class GsonSkillRepositoryImpl implements GenericRepository<Skill, Long>, 
 
     @Override
     public void deleteById(Long id) {
-        List<Skill> allSkillsFromFile = getAllSkillsFromFile();
         Skill skillForDelete = getById(id);
-//        allSkillsFromFile.remove(skillForDelete);
         skillForDelete.setStatus(Status.DELETED);
 
         update(skillForDelete);
-//        writeSkillsToFile(allSkillsFromFile);
     }
 
     @Override
@@ -79,8 +75,8 @@ public class GsonSkillRepositoryImpl implements GenericRepository<Skill, Long>, 
         //TODO: add skillToSave to list
         //TODO: write skill list to the file
         Skill skill = getAllSkillsFromFile().stream().max(Comparator.comparing(Skill::getId)).orElse(null);
-        if (skill.getId() != null){
-            skillToSave.setId(skill.getId()+1);
+        if (skill.getId() != null) {
+            skillToSave.setId(skill.getId() + 1);
         } else
             skillToSave.setId(1L);
         List<Skill> allSkillsFromFile = getAllSkillsFromFile();

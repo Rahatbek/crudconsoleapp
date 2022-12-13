@@ -2,7 +2,8 @@ package com.rahatbek.model;
 
 import java.util.Set;
 
-public class Developer extends BaseEntity {
+public class Developer {
+    private Long id;
     private String firstName;
     private String lastName;
     private Specialty specialty;
@@ -50,5 +51,25 @@ public class Developer extends BaseEntity {
 
     public void setSkills(Set<Skill> skills) {
         this.skills = skills;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Developer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", specialty=" + specialty +
+                ", skills=" + skills +
+                ", status=" + status +
+                '}';
     }
 }

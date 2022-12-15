@@ -13,13 +13,9 @@ import java.util.List;
 public class DeveloperController {
 
     DeveloperRepository developerRepository;
-    SkillRepository skillRepository;
-    SpecialtyRepository specialtyRepository;
 
-    public DeveloperController(DeveloperRepository developerRepository, SkillRepository skillRepository, SpecialtyRepository specialtyRepository) {
+    public DeveloperController(DeveloperRepository developerRepository) {
         this.developerRepository = developerRepository;
-        this.skillRepository = skillRepository;
-        this.specialtyRepository = specialtyRepository;
     }
 
     public List<Developer> getAll() {

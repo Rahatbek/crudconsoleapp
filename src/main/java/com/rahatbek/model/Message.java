@@ -8,6 +8,7 @@ public enum Message {
     SUCCESSFUL_OPERATION("Успешная операция"),
     ERROR_OPERATION("Ошибка!"),
     NAME("Введите имя:"),
+    LASTNAME("Введите фамилие:"),
     ID("Введите ID:"),
     NOT_FIND_ID("Нет ID = ");
 

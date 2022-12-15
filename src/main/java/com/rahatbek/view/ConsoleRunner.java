@@ -1,10 +1,13 @@
 package com.rahatbek.view;
 
+import com.rahatbek.controller.DeveloperController;
 import com.rahatbek.controller.SkillController;
 import com.rahatbek.controller.SpecialtyController;
 import com.rahatbek.model.Message;
+import com.rahatbek.repository.DeveloperRepository;
 import com.rahatbek.repository.SkillRepository;
 import com.rahatbek.repository.SpecialtyRepository;
+import com.rahatbek.repository.gson.GsonDeveloperRepositoryImpl;
 import com.rahatbek.repository.gson.GsonSkillRepositoryImpl;
 import com.rahatbek.repository.gson.GsonSpecialtyRepositoryImpl;
 
@@ -14,6 +17,7 @@ public class ConsoleRunner {
 
     BaseView skillView;
     BaseView specialtyView;
+    BaseView developerView;
 
     private final String damagedDataMessage = "Данные повреждены!";
 
@@ -29,12 +33,16 @@ public class ConsoleRunner {
 
         SkillRepository skillRepository = new GsonSkillRepositoryImpl();
         SpecialtyRepository specialtyRepository = new GsonSpecialtyRepositoryImpl();
+        DeveloperRepository developerRepository = new GsonDeveloperRepositoryImpl();
 
         SkillController skillController = new SkillController(skillRepository);
         SpecialtyController specialtyController = new SpecialtyController(specialtyRepository);
+        DeveloperController developerController = new DeveloperController(developerRepository);
 
         skillView = new SkillView(skillController, sc);
         specialtyView = new SpecialtyView(specialtyController, sc);
+        developerView = new DeveloperView(developerController, skillController, specialtyController, sc);
+
     }
 
     public void run() {
@@ -54,6 +62,7 @@ public class ConsoleRunner {
                     specialtyView.show();
                     break;
                 case "3":
+                    developerView.show();
                     break;
                 case "4":
                     isExit = true;

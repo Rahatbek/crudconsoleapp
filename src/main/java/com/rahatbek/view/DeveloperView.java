@@ -7,7 +7,6 @@ import com.rahatbek.model.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class DeveloperView extends BaseView {
 
@@ -157,7 +156,7 @@ public class DeveloperView extends BaseView {
         }
         System.out.println(listSkillForMinus);
 
-        Set<Skill> skills1 = new HashSet<>();
+        Set<Skill> skills1;
         while (true) {
             System.out.println("Добавить навык по id или 0 для выхода");
             System.out.println("Навыки для добавления: " + listSkillForMinus);

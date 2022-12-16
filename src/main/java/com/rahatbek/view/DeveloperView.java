@@ -134,61 +134,45 @@ public class DeveloperView extends BaseView {
         Specialty byId = specialtyController.getById(idSpecialty);
 
 
-
-        System.out.println("Хотите удалить навык?\n" +
-                "1.Да\n" +
-                "2.Нет");
         List<Skill> curSkills = developerController.getById(id).getSkills();
-        System.out.println("Текущие навыки: " + curSkills);
         List<Skill> allSkills = skillController.getAll();
 
-        String response = sc.next();
 
-        List<Skill> arrayListSkill = new ArrayList<>(allSkills);
-        for (Skill deletedSkill : curSkills) {
-            arrayListSkill.remove(Math.toIntExact(deletedSkill.getId() - 1));
+        while (true) {
+            System.out.println("Удалить навык по id или 0 для выхода");
+            System.out.println("Текущие навыки: " + curSkills);
+            long idSkill = sc.nextLong();
+            List<Skill> skills = listSkillMinus(idSkill, curSkills);
+            curSkills = skills;
+            if (idSkill == 0)
+                break;
         }
+        System.out.println(curSkills);
+        List<Skill> listSkillForMinus = new ArrayList<>(allSkills);
+        List<Skill> listSkillForAdd = new ArrayList<>();
+        for (Skill skill : curSkills) {
+            Long id1 = skill.getId();
+            listSkillForAdd = listSkillMinus(id1, listSkillForMinus);
+            listSkillForMinus = listSkillForAdd;
+        }
+        System.out.println(listSkillForMinus);
 
+        Set<Skill> skills1 = new HashSet<>();
+        while (true) {
+            System.out.println("Добавить навык по id или 0 для выхода");
+            System.out.println("Навыки для добавления: " + listSkillForMinus);
+            long idSkill = sc.nextLong();
+            List<Skill> skills = listSkillMinus(idSkill, listSkillForMinus);
+            skills1 = listSkillAdd(idSkill, listSkillForMinus, curSkills.stream().collect(Collectors.toSet()));
+            List<Skill> newSkills = skills1.stream().collect(Collectors.toList());
+            listSkillForMinus = skills;
+            curSkills = newSkills;
+            if (idSkill == 0)
+                break;
+        }
+        System.out.println(curSkills);
 
-        List<Skill> listMinus = new ArrayList<>();
-
-//        switch (response) {
-//            case "1":
-//            while (true) {
-//                System.out.println("Для удаления навыка введите id");
-//                long idSkill = sc.nextLong();
-//                listMinus = listSkillMinus(idSkill, curSkills);
-//                printSkill(listMinus);
-//                curSkills = listMinus;
-//                if (idSkill == 0)
-//                    break;
-//            }
-//            case "2":
-//            break;
-//        }
-//
-//        System.out.println("Хотите добавить навык?\n" +
-//                "1.Да\n" +
-//                "2.Нет");
-//        response = sc.next();
-//        System.out.println("Отсутствующие списки навыков: " + arrayListSkill);
-//        switch (response) {
-//            case "1":
-//                while (true) {
-//                    System.out.println("Для удаления навыка введите id");
-//                    long idSkill = sc.nextLong();
-//                    listMinus = listSkillAdd(idSkill, curSkills, arrayListSkill);
-//                    printSkill(listMinus);
-//                    curSkills = listMinus;
-//                    if (idSkill == 0)
-//                        break;
-//                }
-//            case "2":
-//                break;
-//        }
-
-        System.out.println();
-//        developerController.update(id, name, Status.ACTIVE);
+        developerController.update(id, name, lastName, byId, curSkills);
         System.out.println(Message.SUCCESSFUL_OPERATION.getMessage());
 
         System.out.println(Message.LINE.getMessage());

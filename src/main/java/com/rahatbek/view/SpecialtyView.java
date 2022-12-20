@@ -88,4 +88,8 @@ public class SpecialtyView extends BaseView {
             System.out.println(Message.EMPTY_LIST.getMessage());
         System.out.println(Message.LINE.getMessage());
     }
+
+    public void getById() {
+        super.isExit = true;
+    }
 }

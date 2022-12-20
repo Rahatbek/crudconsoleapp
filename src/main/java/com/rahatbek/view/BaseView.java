@@ -18,8 +18,11 @@ public abstract class BaseView {
 
     abstract void print();
 
+    abstract void getById();
+    protected boolean isExit = false;
+
     void show() {
-        boolean isExit = false;
+
 
         while (true) {
             print();
@@ -41,6 +44,9 @@ public abstract class BaseView {
                     print();
                     break;
                 case "5":
+                    getById();
+                    break;
+                case "6":
                     isExit = true;
                     break;
                 default:

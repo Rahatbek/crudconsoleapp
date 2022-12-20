@@ -88,4 +88,9 @@ public class SkillView extends BaseView {
             System.out.println(Message.EMPTY_LIST.getMessage());
         System.out.println(Message.LINE.getMessage());
     }
+
+    @Override
+    void getById() {
+        super.isExit = true;
+    }
 }

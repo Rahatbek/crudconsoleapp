@@ -28,7 +28,8 @@ public class DeveloperView extends BaseView {
             " 2. Редактировать\n" +
             " 3. Удалить\n" +
             " 4. Вывести список разработчиков\n" +
-            " 5. Выход";
+            " 5. Вывести разработчика\n" +
+            " 6. Выход";
 
     private final String printMenuMessage = "Список разработчиков:\n" +
             "ID; NAME";
@@ -40,6 +41,9 @@ public class DeveloperView extends BaseView {
             Message.ID.getMessage();
 
     private final String deleteMenuMessage = "Удаление разработчика\n" +
+            Message.ID.getMessage();
+
+    private final String showDeveloper = "Показать одного разработчика\n" +
             Message.ID.getMessage();
 
 
@@ -89,27 +93,17 @@ public class DeveloperView extends BaseView {
         System.out.println(Message.LINE.getMessage());
     }
 
-    private void printSkill(List<Skill> all) {
-        for (Skill item : all)
-            System.out.println(item);
-    }
+    public void print() {
+        List<Developer> all = developerController.getAll();
 
-    private List<Skill> listSkillMinus(long minus, List<Skill> skills) {
-        List<Skill> minusSkill = new ArrayList<>(skills);
-        Skill skill = minusSkill.stream().filter(s -> s.getId().equals(minus))
-                .findFirst()
-                .orElse(null);
-        minusSkill.remove(skill);
-        return minusSkill;
-    }
 
-    private Set<Skill> listSkillAdd(long add, List<Skill> skillsFromFile, Set<Skill> listSkillForAdd) {
-        Skill skill = skillsFromFile.stream().filter(s -> s.getId().equals(add))
-                .findFirst()
-                .orElse(null);
-        if (skill != null)
-            listSkillForAdd.add(skill);
-        return listSkillForAdd;
+        System.out.println(Message.LINE.getMessage());
+        System.out.println(printMenuMessage);
+        if (all != null)
+            System.out.println(all);
+        else
+            System.out.println(Message.EMPTY_LIST.getMessage());
+        System.out.println(Message.LINE.getMessage());
     }
 
     public void update() {
@@ -177,7 +171,6 @@ public class DeveloperView extends BaseView {
         System.out.println(Message.LINE.getMessage());
     }
 
-
     public void delete() {
         System.out.println(Message.LINE.getMessage());
         System.out.println(deleteMenuMessage);
@@ -189,16 +182,38 @@ public class DeveloperView extends BaseView {
         System.out.println(Message.LINE.getMessage());
     }
 
-    public void print() {
-        List<Developer> all = developerController.getAll();
-
-
+    public void getById() {
         System.out.println(Message.LINE.getMessage());
-        System.out.println(printMenuMessage);
-        if (all != null)
-            System.out.println(all);
-        else
-            System.out.println(Message.EMPTY_LIST.getMessage());
+        System.out.println(developerController.getAll());
+        System.out.println(showDeveloper);
+        Long id = sc.nextLong();
+
+        System.out.println(developerController.getById(id));
+        System.out.println(Message.SUCCESSFUL_OPERATION.getMessage());
         System.out.println(Message.LINE.getMessage());
     }
+
+    private void printSkill(List<Skill> all) {
+        for (Skill item : all)
+            System.out.println(item);
+    }
+
+    private List<Skill> listSkillMinus(long minus, List<Skill> skills) {
+        List<Skill> minusSkill = new ArrayList<>(skills);
+        Skill skill = minusSkill.stream().filter(s -> s.getId().equals(minus))
+                .findFirst()
+                .orElse(null);
+        minusSkill.remove(skill);
+        return minusSkill;
+    }
+
+    private Set<Skill> listSkillAdd(long add, List<Skill> skillsFromFile, Set<Skill> listSkillForAdd) {
+        Skill skill = skillsFromFile.stream().filter(s -> s.getId().equals(add))
+                .findFirst()
+                .orElse(null);
+        if (skill != null)
+            listSkillForAdd.add(skill);
+        return listSkillForAdd;
+    }
+
 }

@@ -21,8 +21,6 @@ public class GsonSkillRepositoryImpl implements SkillRepository {
 
 
     private List<Skill> getAllSkillsFromFile() {
-//        String skillsJsonString = "";
-        //TODO: convert string to List<Skill>
         List<Skill> skills = new ArrayList<>();
         try (Reader reader = new FileReader(SKILL_FILE_PATH)) {
             skills = GSON.fromJson(reader, new TypeToken<List<Skill>>() {
@@ -36,7 +34,6 @@ public class GsonSkillRepositoryImpl implements SkillRepository {
 
     private void writeSkillsToFile(List<Skill> skills) {
         String skillsJsonString = GSON.toJson(skills);
-        //TODO: write data to the file
         try (FileWriter writer = new FileWriter(SKILL_FILE_PATH)) {
             writer.write(skillsJsonString);
         } catch (IOException e) {
@@ -70,10 +67,6 @@ public class GsonSkillRepositoryImpl implements SkillRepository {
 
     @Override
     public Skill save(Skill skillToSave) {
-        //TODO: generate ID
-        //TODO: assign new id to the skillToSave
-        //TODO: add skillToSave to list
-        //TODO: write skill list to the file
         Skill skill = getAllSkillsFromFile().stream().max(Comparator.comparing(Skill::getId)).orElse(null);
         if (skill.getId() != null) {
             skillToSave.setId(skill.getId() + 1);

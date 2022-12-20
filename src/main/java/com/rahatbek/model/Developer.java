@@ -1,7 +1,6 @@
 package com.rahatbek.model;
 
 import java.util.List;
-import java.util.Set;
 
 public class Developer {
     private Long id;

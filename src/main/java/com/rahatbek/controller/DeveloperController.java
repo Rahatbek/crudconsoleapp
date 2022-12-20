@@ -5,8 +5,6 @@ import com.rahatbek.model.Skill;
 import com.rahatbek.model.Specialty;
 import com.rahatbek.model.Status;
 import com.rahatbek.repository.DeveloperRepository;
-import com.rahatbek.repository.SkillRepository;
-import com.rahatbek.repository.SpecialtyRepository;
 
 import java.util.List;
 

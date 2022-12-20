@@ -16,12 +16,6 @@ import java.util.List;
 
 public class GsonDeveloperRepositoryImpl implements DeveloperRepository {
 
-    public static void main(String[] args) {
-        GsonDeveloperRepositoryImpl repository = new GsonDeveloperRepositoryImpl();
-
-//        System.out.println(repository.getAllDevelopersFromFle());
-    }
-
     private final String DEVELOPER_FILE_PATH = "./src/main/resources/developers.json";
     private final Gson GSON = new Gson();
 
